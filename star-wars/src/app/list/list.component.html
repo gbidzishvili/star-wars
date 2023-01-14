@@ -1,0 +1,33 @@
+<div class="search-box">
+    <div class="title">
+        <form class="filter" [formGroup] = FilterForm>
+            <label><h2>Search:</h2></label>
+            <input type="text" formControlName="filter" class="input" placeholder="Search Here..." onfocus="this.placeholder=''" >
+        </form>
+    </div>
+</div>
+
+<ul class="table">
+    <li *ngFor = "let person of list;let i = index" class="li-cont">{{person.name}}
+        <button  class="details"(click)="open(i)">details</button>
+    </li>
+
+</ul>
+
+<div *ngIf="clicked" class="dialog">
+    <div class="blur" (click)="close()"></div>
+    <div class="cont">
+        <span class="title">Info</span>
+        <div class="body">
+           <ul class="second">
+               <li class="space-between"><span> birth_year:</span><span>{{birthyear}}</span></li>
+               <li class="space-between"><span>gender:</span> <span>{{gender}}</span> </li>
+               <li class="space-between"> films:<span class="display films" (click)="showFilms()">{{films}}</span></li>
+               <li class="space-between"> starships:<span class="display"  (click)="showStarships()">{{starships}}</span></li>
+               <li class="space-between"> vehicles:<span class="display"  (click) ="showVehicles()">{{vehicles}}</span></li>
+           </ul>
+        </div>
+    </div>
+    
+    </div>
+   

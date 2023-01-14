@@ -1,0 +1,14 @@
+.toolbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    padding: 10px;
+    background-color: #4b0082;
+    margin-bottom: 10px;
+}
+span{
+    color: #fff;
+    font-size:32px;
+}
