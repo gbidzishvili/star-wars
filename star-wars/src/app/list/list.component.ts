@@ -33,6 +33,8 @@ export class ListComponent implements OnInit {
   public speciesArr=[];
   public speciesList:any;
   public listNames=[];
+  public result=[];
+
   
   constructor(public http:HttpClient) { }
 
@@ -43,13 +45,23 @@ export class ListComponent implements OnInit {
     );
     this.FilterForm.get("filter").valueChanges.subscribe((x)=>{
       this.searchText = this.FilterForm.get("filter").value;
-      console.log(this.searchText);
+      this.filter(this.searchText);
+      // console.log(this.searchText);
     })
+  }
+  filter(searchText){
+    // console.log("cube".includes(searchText))
+    const result = this.listNames.filter(v =>v.toLowerCase().includes(searchText));
+    console.log(result)
+    this.result = result;
+
   }
   getList(v){
     console.log(v)
     v.results.forEach(val=>{
       this.list.push(val);
+      this.result.push(val.name);
+      
       console.log("** ",val.name)
       this.listNames.push(val.name);
     })
