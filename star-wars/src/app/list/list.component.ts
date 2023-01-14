@@ -46,11 +46,9 @@ export class ListComponent implements OnInit {
     this.FilterForm.get("filter").valueChanges.subscribe((x)=>{
       this.searchText = this.FilterForm.get("filter").value;
       this.filter(this.searchText);
-      // console.log(this.searchText);
     })
   }
   filter(searchText){
-    // console.log("cube".includes(searchText))
     const result = this.listNames.filter(v =>v.toLowerCase().includes(searchText));
     console.log(result)
     this.result = result;
@@ -105,7 +103,6 @@ export class ListComponent implements OnInit {
       this.http.get(this.filmsList[i]).subscribe(v=>this.getFilms(v))
     }
     this.films = "wait..."
-    // console.log(this.filmsList["title"])
   }
   }
   getFilms(v){
