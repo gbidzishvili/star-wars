@@ -13,6 +13,7 @@ export class ListComponent implements OnInit {
   public FilterForm = new FormGroup({
     filter : new FormControl("")
   })
+  searchText:any;
   public idx=0;
   public clicked = false;
   public character:string;
@@ -28,6 +29,7 @@ export class ListComponent implements OnInit {
   public vehicles:any="show vehicles...";
   public vehiclesArr=[];
   public vehiclesList;
+  public listNames=[];
   constructor(public http:HttpClient) { }
 
   ngOnInit(): void {
@@ -35,12 +37,19 @@ export class ListComponent implements OnInit {
       this.getList(v)
       
     );
+    this.FilterForm.get("filter").valueChanges.subscribe((x)=>{
+      this.searchText = this.FilterForm.get("filter").value;
+      console.log(this.searchText);
+    })
   }
   getList(v){
     console.log(v)
     v.results.forEach(val=>{
       this.list.push(val);
+      console.log("** ",val.name)
+      this.listNames.push(val.name);
     })
+    console.log("// ",this.listNames)
     console.log(this.list);
   }
   open(i:number){

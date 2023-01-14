@@ -10,19 +10,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from "@angular/material/icon";
 import { ListComponent } from './list/list.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import {Ng2FilterComponent} from 'ng2-filter';
+import { FilterPipeModule } from 'ngx-filter-pipe';
 @NgModule({
   declarations: [
     AppComponent,
     TopBarComponent,
-    ListComponent
+    ListComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FilterPipeModule
     
   ],
   providers: [],

@@ -8,7 +8,7 @@
 </div>
 
 <ul class="table">
-    <li *ngFor = "let person of list;let i = index" class="li-cont">{{person.name}}
+    <li *ngFor = "let person of listNames | filterBy:searchText;let i = index" class="li-cont">{{person}}
         <button  class="details"(click)="open(i)">details</button>
     </li>
 
