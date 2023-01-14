@@ -9,7 +9,7 @@
 
 <ul class="table" >
     <li *ngFor = "let person of result;let i = index" class="li-cont">{{person}}
-        <button  class="details"(click)="open(i)">details</button>
+        <button  class="details"(click)="open(i,person)">details</button>
     </li>
 
 </ul>

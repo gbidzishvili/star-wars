@@ -66,11 +66,20 @@ export class ListComponent implements OnInit {
     console.log("// ",this.listNames)
     console.log(this.list);
   }
-  open(i:number){
+  open(i:number,name:string){
+    console.log(this.list)
+    let charact:string;
+    this.list.forEach(v=>{if(v.name===name){
+      charact = v;
+      // console.log("yee",charact);
+      // break;
+      
+    }})
+    // console.log("char is **:",charact)
     this.clicked = !this.clicked;
-    this.idx = i;
-    console.log("idx is: "+ this.idx);
-    this.character = this.list[i];
+    // this.idx = i;
+    // console.log("idx is: "+ this.idx);
+    this.character = charact;
     console.log("character is: ", this.character)
     this.birthyear = this.character["birth_year"]
     this.gender = this.character["gender"]
