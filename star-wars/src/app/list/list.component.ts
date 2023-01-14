@@ -29,7 +29,11 @@ export class ListComponent implements OnInit {
   public vehicles:any="show vehicles...";
   public vehiclesArr=[];
   public vehiclesList;
+  public species:any="show species...";
+  public speciesArr=[];
+  public speciesList:any;
   public listNames=[];
+  
   constructor(public http:HttpClient) { }
 
   ngOnInit(): void {
@@ -63,6 +67,7 @@ export class ListComponent implements OnInit {
     this.filmsList = this.character["films"]
     this.starshipsList = this.character["starships"]
     this.vehiclesList = this.character["vehicles"]
+    this.speciesList = this.character["species"]
    
   }
   close(){
@@ -76,6 +81,9 @@ export class ListComponent implements OnInit {
   this.vehicles="show vehicles...";
   this.vehiclesArr=[];
   this.vehiclesList;
+  this.species="show species...";
+  this.speciesArr=[];
+  this.speciesList;
   }
   showFilms(){
     if(this.filmsList.length==0){
@@ -131,6 +139,23 @@ export class ListComponent implements OnInit {
     this.vehicles = this.vehiclesArr;
     console.log(this.vehiclesArr)
  
+  }
+  showSpecies(){
+    if(this.speciesList.length==0){
+      this.species="none"
+    }else{
+    for(let i = 0 ; i< this.speciesList.length; i++){
+      this.http.get(this.speciesList[i]).subscribe(v=>{this.getSpecies(v);console.log(v)})
+    }
+    this.species = "wait..."
+  }
+  }
+  getSpecies(v){
+    this.speciesArr.push(v["name"]);
+    console.log(this.speciesArr);
+    if(this.speciesArr.length ===this.speciesList.length)
+    this.species = this.speciesArr;
+    console.log(this.speciesArr)
   }
   
 
