@@ -66,7 +66,7 @@ export class ListComponent implements OnInit {
     console.log("// ",this.listNames)
     console.log(this.list);
   }
-  open(i:number,name:string){
+  open(name:string){
     console.log(this.list)
     let charact:string;
     this.list.forEach(v=>{if(v.name===name){
